@@ -87,7 +87,7 @@ const TodoList = (props) => {
 
         <div className="d-flex justify-content-center">
           <div className="2w-50">
-            <div className="row">
+            <div className="mt-5 row">
               <h2
                 style={{
                   textDecoration: "underline",
@@ -108,6 +108,7 @@ const TodoList = (props) => {
               </div>
 
               <div className="mt-4">
+                <hr style={{ marginTop: "1rem", backgroundColor: "red", width: "100%" }} />
                 {taskList?.length ? (
                   <>
                     <h4>List of Task</h4>
@@ -130,11 +131,11 @@ const TodoList = (props) => {
                                 }
                                 id="flexCheckDefault"
                               />
-                              <div className="mx-2 card" style={{ width: "23rem" }}>
+                              <div className="card d-flex" style={{ width: "23rem" }}>
                                 <h5 style={{ textDecoration: `${isChecked[id] ? "line-through" : "none"}` }}
                                   className="mx-4">{elem}</h5>
                               </div>
-                              <div className="mx-4d-flex">
+                              <div>
                                 <i
                                   style={{
                                     opacity: `${isChecked[id] ? "0.3" : "1"}`,
@@ -178,7 +179,7 @@ const TodoList = (props) => {
                                 {/* Delete Icon For Task */}
                                 <i
                                   onClick={() => deleteTask(id)}
-                                  className="mx-2 fa fa-trash-o"
+                                  className="fa fa-trash-o"
                                   aria-hidden="true"
                                 ></i>
                               </div>
@@ -186,7 +187,8 @@ const TodoList = (props) => {
                           );
                         })
                     }
-                    <h2 className="mt-5">Basic Analytics</h2>
+                    <hr style={{ marginTop: "5rem", backgroundColor: "red", width: "100%" }} />
+                    <h2>Basic Analytics</h2>
                     <Table striped bordered hover>
                       <thead>
                         <tr>
