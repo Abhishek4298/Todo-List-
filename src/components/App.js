@@ -16,7 +16,6 @@ function App() {
   }
   return (
     <>
-
       <Container
         className="d-flex align-items-center justify-content-center"
         style={{ minHeight: "100vh" }}
@@ -29,10 +28,11 @@ function App() {
             <AuthProvider>
               <Switch>
                 <PrivateRoute exact path="/" component={Dashboard} />
+                <PrivateRoute path="/todolist"
+                  component={() => <TodoList search={search} />} />
                 <Route path="/signup" component={Signup} />
                 <Route path="/login" component={Login} />
-                <Route path="/todolist"
-                  component={() => <TodoList search={search} />} />
+
               </Switch>
             </AuthProvider>
           </Router>

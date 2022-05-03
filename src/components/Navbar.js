@@ -1,14 +1,12 @@
 import React from 'react';
 import { useState } from 'react';
-import { Navbar, Nav, Form, Button, NavDropdown } from 'react-bootstrap'
+import { Navbar, Nav, Form, Button } from 'react-bootstrap'
 import { Link } from "react-router-dom";
 import LogoName from '../Logo.svg'
 
 const NavbarLink = (props) => {
-    let isToken = localStorage.getItem('token')
-    if (!isToken) {
-        isToken = null
-    }
+    let isAuthenticate;
+    //  TODO : Getting the  data from indexDB based on that search and other navbar show.
     const [search, setSearch] = useState("")
 
     const setSearchInput = (e) => {
@@ -16,7 +14,7 @@ const NavbarLink = (props) => {
     }
     return (<>
         <Navbar className="fixed-top" bg={props.mode} variant={props.mode}>
-            <Navbar.Brand href="/home">
+            <Navbar.Brand href="/">
                 <img src={LogoName} alt="logo" width="60" height="40" />
             </Navbar.Brand>
 

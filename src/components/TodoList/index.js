@@ -29,10 +29,10 @@ const TodoList = (props) => {
         list = getFromLocalStorage;
       }
       if (!input) {
-        return <Alert variant="danger">
-          Task can not be enter null
-        </Alert>
-        // return props.showAlert("", "info");
+        return alert("Task can not be null")
+        // return <Alert variant="danger">
+        //   Task can not be enter null
+        // </Alert>
       }
       list.push(input);
       setTaskList(list);
@@ -41,6 +41,7 @@ const TodoList = (props) => {
       return <Alert variant="success">
         Task added successfully
       </Alert>
+
       // return props.showAlert("Task added successfully", "success");
     } else {
       //Edit
@@ -50,10 +51,10 @@ const TodoList = (props) => {
       localStorage.setItem("AddTaskData", JSON.stringify(updatedList));
       setEdit("");
       setShow(false);
-      return <Alert variant="success">
-        Task Updated successfully
-      </Alert>
-      // return props.showAlert("Task Updated successfully", "success");
+      return alert("Task Updated successfully")
+      // return <Alert variant="success">
+      //   Task Updated successfully
+      // </Alert>
     }
   };
 
@@ -64,10 +65,10 @@ const TodoList = (props) => {
     });
     localStorage.setItem("AddTaskData", JSON.stringify(deletedData));
     setTaskList(deletedData);
-    return <Alert variant="success">
-      Task deleted successfully
-    </Alert>
-    // return props.showAlert("Task deleted successfully", "success");
+    return alert("Task deleted successfully")
+    // return <Alert variant="success">
+    //   Task deleted successfully
+    // </Alert>
   };
 
   // check change
@@ -84,15 +85,10 @@ const TodoList = (props) => {
   return (
     <>
       <div className="container">
-
         <div className="d-flex justify-content-center">
           <div className="2w-50">
             <div className="mt-5 row">
-              <h2
-                style={{
-                  textDecoration: "underline",
-                }}
-              >
+              <h2 style={{ textDecoration: "underline" }}>
                 To-do List
               </h2>
               <div className="mt-3 form-floating d-flex justify-content-center">
