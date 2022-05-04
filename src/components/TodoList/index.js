@@ -1,6 +1,7 @@
 
 import React, { useState } from "react";
 import { Modal, Button, Alert, Card, Table } from "react-bootstrap";
+import Analytics from "../Analytics";
 import "./todolist.css";
 
 const TodoList = (props) => {
@@ -11,7 +12,6 @@ const TodoList = (props) => {
   const [edit, setEdit] = useState("");
   const [show, setShow] = useState(false);
   const [isChecked, setIsChecked] = useState([]);
-  console.log("===> :: isChecked", isChecked.length);
 
   // Modal Edit
   const handleClose = () => setShow(false);
@@ -85,7 +85,7 @@ const TodoList = (props) => {
   return (
     <>
       <div className="container">
-        <div className="d-flex justify-content-center">
+        <div>
           <div className="2w-50">
             <div className="mt-5 row">
               <h2 style={{ textDecoration: "underline" }}>
@@ -98,15 +98,14 @@ const TodoList = (props) => {
                   value={input}
                   onChange={onChange}
                   placeholder="Enter Your Task"
-                ></textarea>
-                <label htmlFor="floatingTextarea">Add Task</label>
-                <i id="floatingTextarea" onClick={() => manageTask()} className="fa fa-plus-square-o fa-3x" aria-hidden="true"></i>
+                  rows="2" cols="50"></textarea>
+                <i id="floatingTextarea" onClick={() => manageTask()} className="mx-3 fa fa-plus-square-o fa-3x" aria-hidden="true"></i>
               </div>
 
               <div className="mt-4">
-                <hr style={{ marginTop: "1rem", backgroundColor: "red", width: "100%" }} />
                 {taskList?.length ? (
                   <>
+                    <hr style={{ marginTop: "1rem", backgroundColor: "red", width: "100%" }} />
                     <h4>List of Task</h4>
                     {
                       taskList.filter(ele => props.search ?
@@ -183,25 +182,12 @@ const TodoList = (props) => {
                           );
                         })
                     }
-                    <hr style={{ marginTop: "5rem", backgroundColor: "red", width: "100%" }} />
-                    <h2>Basic Analytics</h2>
-                    <Table striped bordered hover>
-                      <thead>
-                        <tr>
-                          <th>Total Item in List</th>
-                          <th>Checked Item count</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>{getFromLocalStorage.length}</td>
-                          <td>{isChecked.length}</td>
-                        </tr>
-                      </tbody>
-                    </Table>
+                    {/* <Analytics totalLength={getFromLocalStorage.length} checkedList={isChecked.length} /> */}
                   </>
                 ) : (
-                  <p>No task</p>
+                  <div className="m-4">
+                    <p>No task</p>
+                  </div>
                 )}
                 <br />
               </div>

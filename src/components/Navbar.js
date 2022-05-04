@@ -24,6 +24,7 @@ const NavbarLink = (props) => {
                     <Link to="/login" className="nav-link"> {props.login}</Link>
                     <Link to="/signup" className="nav-link"> {props.signup}</Link>
                     <Link to="/todolist" className="nav-link">{props.todolist}</Link>
+                    <Link to="/analytics" className="nav-link">{props.analytics}</Link>
                 </Nav>
                 <div style={{
                     display: "flex",
@@ -54,7 +55,9 @@ NavbarLink.defaultProps = {
     login: "Login",
     signup: "Signup",
     logout: "Logout",
-    todolist: "TodoList"
+    todolist: "TodoList",
+    analytics: "Analytics"
+
 }
 
 export default NavbarLink;

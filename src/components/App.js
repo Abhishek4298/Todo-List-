@@ -8,6 +8,7 @@ import Login from "./Login"
 import PrivateRoute from "./PrivateRoute"
 import NavbarLink from "./Navbar"
 import TodoList from "./TodoList"
+import Analytics from "./Analytics"
 
 function App() {
   const [search, setSearch] = useState("")
@@ -30,6 +31,7 @@ function App() {
                 <PrivateRoute exact path="/" component={Dashboard} />
                 <PrivateRoute path="/todolist"
                   component={() => <TodoList search={search} />} />
+                <PrivateRoute exact path="/" component={Analytics} />
                 <Route path="/signup" component={Signup} />
                 <Route path="/login" component={Login} />
 
